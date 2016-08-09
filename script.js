@@ -1,36 +1,52 @@
 var arr = [];
 var id_arr = [];
-function func()
-{
-	_.each(shop,function(val){
-		var found = _.filter(pc,function(val1)
-		{
-			if(val.name==val1.name)
-				arr.push({id:val1.id,name:val1.name,qty:val.qty});
-		})
-	})
-	var output ="";
-	
-	_.each(arr,function(item){
-				output+='<div><br><input type="checkbox" name = "checked1" id = "'+ item.id +'">id:'+ item.id + ' '+ '<br>'+ '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + 'name:'+item.name+'</div>';
-	})
 
-$('body').empty();
-$('body').append(output);
-$('body').append('<input type=button value="checkout" onclick="checkout()">');
-var result = _.groupBy(arr,"name");
-	console.log(result);
+function func(){
+
+			_.each(shop,function(val){
+				var found = _.filter(pc, { name: val.name });
+				arr = [].concat(arr, found);
+			})
+
+			var grouped = _.groupBy(arr,"name");
+			console.log(grouped);
+
+			var $results = $('#results');
+
+			var key, i, j;
+			for (key in grouped) {
+						if ( ! grouped.hasOwnProperty(key) ) {
+							continue;
+						}
+
+						$results.append('<h3>' + key + '</h3>');
+
+						for(i = 0, j = grouped[key].length; i< j; i++) {
+							$results.append(
+								[
+									'<div>',
+										'<input type="checkbox" id=' + grouped[key][i].id + '>',
+										'<label for=' + grouped[key][i].id + '>' + grouped[key][i].color + ' ' + grouped[key][i].name + '</label>',
+									'</div>'
+								].join('')
+							);}
+				}	
+
+	$('body').append('<input type=button value="checkout" onclick="checkout()">');
 }
 
 
+
+
 function checkout(){
-	var output1 ="";
-	var Total = 0;
-	$('input[name="checked1"]:checked').each(function() {
-   console.log(this.id);
-   id_arr.push(this.id);
-   console.log(id_arr);
-});
+		var output1 ="";
+		var Total = 0;
+
+		$('input[type="checkbox"]:checked').each(function() {
+   			console.log(this.id);
+		   id_arr.push(this.id);
+		   console.log(id_arr);
+		});
 
 	_.each(id_arr,function(id_val){
 		_.each(pc,function(pc_val){
