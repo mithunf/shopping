@@ -17,18 +17,18 @@ var pc=[
 
 			{
 			id: 303,
-			name: "candle",
-			size:9,
-			price: 25,
-			color: "blue"
-			},
-
-			{
-			id: 304,
 			name: "shoes",
 			size: 8,
 			price: 300,
 			color: "black"
+			},
+
+			{
+			id: 304,
+			name: "candle",
+			size:9,
+			price: 25,
+			color: "blue"
 			},
 
 			{

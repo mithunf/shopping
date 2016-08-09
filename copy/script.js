@@ -46,5 +46,5 @@ function checkout(){
 		})
 	})
 $('body').append(output1);	
-$('body').append('<br>Your total amount: '+ Total);
+$('body').append('<br>Total amount: '+ Total);
 }
