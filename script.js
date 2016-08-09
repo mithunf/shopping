@@ -12,7 +12,7 @@ function func()
 	var output ="";
 	
 	_.each(arr,function(item){
-		output+='<div><input type="checkbox" name = "checked1" id = "'+ item.id +'">id:'+ item.id + ' '+ '<br>' + 'name:'+item.name+'</div>';
+				output+='<div><br><input type="checkbox" name = "checked1" id = "'+ item.id +'">id:'+ item.id + ' '+ '<br>'+ '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + 'name:'+item.name+'</div>';
 	})
 
 $('body').empty();
