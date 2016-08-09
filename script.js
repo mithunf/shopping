@@ -1,5 +1,5 @@
 var arr = [];
-var id_arr = [];
+
 function func()
 {
 	_.each(shop,function(val){
@@ -12,7 +12,7 @@ function func()
 	var output ="";
 	
 	_.each(arr,function(item){
-		output+='<div><input type="checkbox" name = "checked1" id = "'+ item.id +'">id:'+ item.id + ' '+ '<br>' + 'name:'+item.name+'</div>';
+		output+='<div><br><input type="checkbox" name = "checked1" id = "'+ item.id +'">id:'+ item.id + ' '+ '<br>'+ '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + 'name:'+item.name+'</div>';
 	})
 
 $('body').empty();
@@ -24,6 +24,7 @@ var result = _.groupBy(arr,"name");
 
 
 function checkout(){
+	var id_arr = [];
 	var output1 ="";
 	var Total = 0;
 	$('input[name="checked1"]:checked').each(function() {
